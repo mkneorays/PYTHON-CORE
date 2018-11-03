@@ -1,0 +1,182 @@
+'''
+Created on 28-Oct-2018
+
+@author: CHOTKA
+'''
+print("hello python")  # hello python
+
+if 3>5:
+    print("hii")
+else:
+    print("hello")
+    
+    
+thislist = ["apple", "banana", "cherry"]  # this is list
+print(thislist)  #  ['apple', 'banana', 'cherry']
+
+thistuple = ("apple", "banana", "cherry")  # this is tuple
+print(thistuple)    #  ('apple', 'banana', 'cherry')
+
+thisset = {"apple", "banana", "cherry"}   # this is set
+print(thisset)     #    {'banana', 'apple', 'cherry'}
+
+thisdict =    {    #  this is dictionary
+  "brand": "Ford",
+  "model": "Mustang",
+  "year": 1964
+}
+print(thisdict)    #   {'brand': 'Ford', 'model': 'Mustang', 'year': 1964}
+  
+tuple=(1,2,3,4,)
+list=[4,3,2,1]
+set={1,2,3,4}
+
+    
+for x in list:
+    print(x)
+    
+'''for y in tuple:
+    print(y)
+        
+for y in set:
+    print(y)   '''
+
+dic={"name":"mk","address":"jamni","age":25}  
+for z in dic:
+    print(x)  # 1 1 1 three times will come but in java u cnt do like that
+    
+for a in dic:
+    print(a)  # name  address age  only key it will print
+for a in dic:
+    print(dic.values())  #   dict_values(['mk', 'jamni', 25])
+    print(dic.keys())     #   dict_keys(['name', 'address', 'age'])    it'll iterate
+    print(dic["name"])     #  mk
+    
+    
+a = 33
+b = 33
+if b > a:
+  print("b is greater than a")
+elif a != b:
+  print("a and b are equal")
+else:
+    print("no")     #  no
+
+a = 33
+b = 33
+if b > a:
+  print("b is greater than a")
+elif a == b:
+  print("a and b are equal")     # a and b are equla
+  
+#   One line if statement:
+if a > b: print("a is greater than b")     #   a and b are equal
+
+#  One line if else statement:
+print("A") if a > b else print("B")   # o/p  B
+
+#  OPERATORS
+
+a = 200
+b = 33
+c = 500
+if a > b and c > a:
+    print("Both conditions are True")    #   Both conditions are True
+    
+if a > b or a > c:
+  print("At least one of the conditions are True")  #    At least one of the conditions are True
+  
+#  WHILE LOOP
+i = 1
+while i < 6:
+  print(i)    #   #  this while loop will print 1 2 3 4 5
+  i += 1
+  
+i = 1
+while i < 6:
+  print(i)
+  if i == 3:   #  this while loop will print 1 2 3 only
+    break
+  i += 1  
+    
+i = 0
+while i < 6:
+  i += 1 
+  if i == 3:   #  this while loop will print 1 2  4 5 6
+    continue
+  print(i)
+    
+#   The range() Function
+#   The range() function returns a sequence of numbers, starting from 0 by default,
+#     and increments by 1 (by default), and ends at a specified number.
+print("----------------")
+for x in range(5):
+    print(x)      #   0 1 2 3 4
+
+for x in range(2, 6):
+  print(x)        #  2 3 4 5
+
+for x in range(2, 30, 3):
+  print(x)        #  2 5 8 11 14 17 20 23 26 29
+
+print("-----------------")
+adj = ["red", "big", "tasty"]
+fruits = ["apple", "banana", "cherry"]
+
+for x in adj:
+  for y in fruits:
+    print(x, y)
+'''   o/p
+red apple
+red banana
+red cherry
+big apple
+big banana
+big cherry
+tasty apple
+tasty banana
+tasty cherry    '''
+
+#    Recursion  came be carefull foalk
+print("-----------------")
+def tri_recursion(k):
+  if(k>0):
+    result = k+tri_recursion(k-1)
+    print(result)                 #   1 3 6 10 15 21
+  else:
+    result = 0
+  return result
+
+print("\n\nRecursion Example Results")
+tri_recursion(6)
+------------------------------------------------------------------------------
+# FUNCTION
+
+def my_function():
+  print("Hello from a function")   #   Hello from a function
+
+my_function()
+
+def my_function(fname):
+  print(fname + " Refsnes")
+
+my_function("Emil")
+my_function("Tobias")
+my_function("Linus")
+
+def my_function(country = "Norway"):
+  print("I am from " + country)
+
+my_function("Sweden")    #   I am from Sweden
+my_function("India")     #   I am from India  
+my_function()            #    I am from Norway
+my_function("Brazil")    #   I am from Brazil
+
+def my_function(x):
+  return 5 * x
+
+print(my_function(3))   #   15
+print(my_function(5))   #   25
+print(my_function(9))   #   45 
+-------------------------------------------------------------------------------------
+
