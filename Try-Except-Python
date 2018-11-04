@@ -1,0 +1,57 @@
+Python Try Except
+The try block lets you test a block of code for errors.
+
+The except block lets you handle the error.
+
+The finally block lets you execute code, regardless of the result of the try- and except blocks.
+
+Exception Handling
+When an error occurs, or exception as we call it, Python will normally stop and generate an error message.
+
+These exceptions can be handled using the try statement:
+
+Example
+The try block will generate an exception, because x is not defined:
+
+try:
+  print(x)
+except:
+  print("An exception occurred")        #           An exception occurred
+Since the try block raises an error, the except block will be executed.
+
+Without the try block, the program will crash and raise an error:
+
+Example
+This statement will raise an error, because x is not defined:
+
+print(x)  #  big errroe aahahaha
+
+-----------------------------------------------------------------------------------------
+Finally
+The finally block, if specified, will be executed regardless if the try block raises an error or not.
+
+Example
+try:
+  print(x)
+except:
+  print("Something went wrong")
+finally:
+  print("The 'try except' is finished")
+  
+  o/p
+  Something went wrong
+The 'try except' is finished
+--------------------------------------------------------
+This can be useful to close objects and clean up resources:
+
+Example
+Try to open and write to a file that is not writable:
+
+try:
+  f = open("demofile.txt")
+  f.write("Lorum Ipsum")
+except:
+  print("Something went wrong when writing to the file")
+finally:
+  f.close()
+The program can continue, without leaving the file object open.
