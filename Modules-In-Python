@@ -1,0 +1,115 @@
+Python Modules
+What is a Module?
+Consider a module to be the same as a code library.
+
+A file containing a set of functions you want to include in your application.
+
+Create a Module
+To create a module just save the code you want in a file with the file extension .py:
+
+Example
+Save this code in a file named mymodule.py
+
+def greeting(name):
+  print("Hello, " + name)
+Use a Module
+Now we can use the module we just created, by using the import statement:
+
+Example
+Import the module named mymodule, and call the greeting function:
+
+import mymodule
+
+mymodule.greeting("Jonathan") #  Hello, Jonathan
+Note: When using a function from a module, use the syntax: module_name.function_name.
+
+--------------------------------------------------------------------
+Variables in Module
+The module can contain functions, as already described, but also variables of all types (arrays, dictionaries, objects etc):
+
+Example
+Save this code in the file mymodule.py
+
+person1 = {
+  "name": "John",
+  "age": 36,
+  "country": "Norway"
+}
+Example
+Import the module named mymodule, and access the person1 dictionary:
+
+import mymodule
+
+a = mymodule.person1["age"]
+print(a)   #  36
+--------------------------------------------------------------------------
+Naming a Module
+You can name the module file whatever you like, but it must have the file extension .py
+
+Re-naming a Module
+You can create an alias when you import a module, by using the as keyword:
+
+Example
+Create an alias for mymodule called mx:
+
+import mymodule as mx
+
+a = mx.person1["age"]
+print(a)        #    36
+------------------------------------------------------------------------------------
+Built-in Modules
+There are several built-in modules in Python, which you can import whenever you like.
+
+Example
+Import and use the platform module:
+'''
+Created on 04-Nov-2018
+
+@author: CHOTKA
+'''
+import platform
+
+x = platform.system()
+print(x)       #    Windows
+
+import platform
+
+x = dir(platform)
+print(x)    #    ['DEV_NULL', '_UNIXCONFDIR', '_WIN32_CLIENT_RELEASES', '_WIN32_SERVER_RELEASES', '__builtins__',
+            #    '__cached__', '__copyright__', '__doc__', '__file__', '__loader__', '__name__', '__package__', '__spec__', 
+           # '__version__', '_default_architecture', '_dist_try_harder', '_follow_symlinks', '_ironpython26_sys_version_parser',
+            #   '_ironpython_sys_version_parser', '_java_getprop', '_libc_search', '_linux_distribution', '_lsb_release_version', 
+            #   '_mac_ver_xml', '_node', '_norm_version', '_parse_release_file', '_platform', '_platform_cache', '_pypy_sys_version_parser',
+            #    '_release_filename', '_release_version', '_supported_dists', '_sys_version', '_sys_version_cache', '_sys_version_parser', 
+            #  '_syscmd_file', '_syscmd_uname', '_syscmd_ver', '_uname_cache', '_ver_output', 'architecture', 'collections', 'dist',
+           #    'java_ver', 'libc_ver', 'linux_distribution', 'mac_ver', 'machine', 'node', 'os', 'platform', 'popen', 'processor',
+           #     'python_branch', 'python_build', 'python_compiler', 'python_implementation', 'python_revision', 'python_version', 
+           #     'python_version_tuple', 're', 'release', 'subprocess', 'sys', 'system', 'system_alias', 'uname', 'uname_result',
+           #      'version', 'warnings', 'win32_ver']
+           
+           
+
+---------------------------------------------------------------
+Import From Module
+You can choose to import only parts from a module, by using the from keyword.
+
+Example
+The module named mymodule has one function and one dictionary:
+mymodule.py   (manually u have to create)
+def greeting(name):
+  print("Hello, " + name)
+
+person1 = {
+  "name": "John",
+  "age": 36,
+  "country": "Norway"
+}
+Example
+Import only the person1 dictionary from the module:
+
+from mymodule import person1
+
+print (person1["age"])   #   36
+Note: When importing using the from keyword, do not use the module name when referring to elements in the module.
+Example: person1["age"], not mymodule.person1["age"]
+
