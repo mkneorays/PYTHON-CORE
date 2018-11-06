@@ -1,1 +1,132 @@
 
+Python MySQL Update Table
+Update Table
+You can update existing records in a table by using the "UPDATE" statement:
+
+Example
+Overwrite the address column from "Valley 345" to "Canyoun 123":
+
+import mysql.connector
+
+mydb = mysql.connector.connect(
+  host="localhost",
+  user="yourusername",
+  passwd="yourpassword",
+  database="mydatabase"
+)
+
+mycursor = mydb.cursor()
+
+sql = "UPDATE customers SET address = 'Canyon 123' WHERE address = 'Valley 345'"
+
+mycursor.execute(sql)
+
+mydb.commit()
+
+print(mycursor.rowcount, "record(s) affected")
+Important!: Notice the statement: mydb.commit(). It is required to make the changes, otherwise no changes are made to the table.
+
+Notice the WHERE clause in the UPDATE syntax: The WHERE clause specifies which record or records that should be updated. If you omit the WHERE clause, all records will be updated!
+
+Prevent SQL Injection
+It is considered a good practice to escape the values of any query, also in update statements.
+
+This is to prevent SQL injections, which is a common web hacking technique to destroy or misuse your database.
+
+The mysql.connector module uses the placeholder %s to escape values in the delete statement:
+
+Example
+Escape values by using the placholder %s method:
+
+import mysql.connector
+
+mydb = mysql.connector.connect(
+  host="localhost",
+  user="yourusername",
+  passwd="yourpassword",
+  database="mydatabase"
+)
+
+mycursor = mydb.cursor()
+
+sql = "UPDATE customers SET address = %s WHERE address = %s"
+val = ("Valley 345", "Canyon 123")
+
+mycursor.execute(sql, val)
+
+mydb.commit()
+
+print(mycursor.rowcount, "record(s) affected")
+-----------------------------------------------------------------------------------------------
+Python MySQL Join
+Join Two or More Tables
+You can combine rows from two or more tables, based on a related column between them, by using a JOIN statement.
+
+Consider you have a "users" table and a "products" table:
+
+users
+{ id: 1, name: 'John', fav: 154},
+{ id: 2, name: 'Peter', fav: 154},
+{ id: 3, name: 'Amy', fav: 155},
+{ id: 4, name: 'Hannah', fav:},
+{ id: 5, name: 'Michael', fav:}
+products
+{ id: 154, name: 'Chocolate Heaven' },
+{ id: 155, name: 'Tasty Lemons' },
+{ id: 156, name: 'Vanilla Dreams' }
+These two tables can be combined by using users' fav field and products' id field.
+
+Example
+Join users and products to see the name of the users favorite product:
+
+import mysql.connector
+
+mydb = mysql.connector.connect(
+  host="localhost",
+  user="yourusername",
+  passwd="yourpassword",
+  database="mydatabase"
+)
+
+mycursor = mydb.cursor()
+
+sql = "SELECT \
+  users.name AS user, \
+  products.name AS favorite \
+  FROM users \
+  INNER JOIN products ON users.fav = products.id"
+
+mycursor.execute(sql)
+
+myresult = mycursor.fetchall()
+
+for x in myresult:
+  print(x)
+Note: You can use JOIN instead of INNER JOIN. They will both give you the same result.
+
+LEFT JOIN
+In the example above, Hannah, and Michael were excluded from the result, that is because INNER JOIN only shows the records where there is a match.
+
+If you want to show all users, even if they do not have a favorite product, use the LEFT JOIN statement:
+
+Example
+Select all users and their favorite product:
+
+sql = "SELECT \
+  users.name AS user, \
+  products.name AS favorite \
+  FROM users \
+  LEFT JOIN products ON users.fav = products.id"
+RIGHT JOIN
+If you want to return all products, and the users who have them as their favorite, even if no user have them as their favorite, use the RIGHT JOIN statement:
+
+Example
+Select all products, and the user(s) who have them as their favorite:
+
+sql = "SELECT \
+  users.name AS user, \
+  products.name AS favorite \
+  FROM users \
+  RIGHT JOIN products ON users.fav = products.id"
+Note: Hannah and Michael, who have no favorite product, are not included in the result.
+
