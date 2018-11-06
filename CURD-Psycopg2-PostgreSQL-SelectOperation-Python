@@ -43,6 +43,7 @@ cur.execute("SELECT MIN(AGE) FROM STUDENT")#     #  11
 
 # fetch all rows
 rows=cur.fetchall()
+rows = cur.fetchone() #  it will fetch only one row  record of the table 
 # print(rows)   # [(1, 'mithu', 22, 'jamni'), (2, 'ram', 25, 'bgp'), (3, 'shyam', 35, 'hyd'),
               #  (4, 'santosh', 11, 'tamil'), (5, 'santosh', 21, 'bnglor'), (10, 'Suresh ', 29, 'Anhra'), (11, 'Hari ', 30, 'odisha')]
 
