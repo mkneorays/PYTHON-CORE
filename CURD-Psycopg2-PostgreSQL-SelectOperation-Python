@@ -1,0 +1,62 @@
+'''
+Created on 06-Nov-2018
+
+@author: CHOTKA
+'''
+# import library
+import psycopg2
+# connect to postgreSQL db to Psycopg2
+conn=psycopg2.connect("dbname=mithu  user=postgres password=postgre host=localhost")
+# Activate connection cursor
+cur=conn.cursor()
+'''    This is table 
+mithu=# select * from student;
+ id |  name   | age | address
+----+---------+-----+---------
+  1 | mithu   |  22 | jamni
+  2 | ram     |  25 | bgp
+  3 | shyam   |  35 | hyd
+  4 | santosh |  11 | tamil
+  5 | santosh |  21 | bnglor
+ 10 | Suresh  |  29 | Anhra
+ 11 | Hari    |  30 | odisha
+(7 rows)
+'''
+# select table and display
+#cur.execute("SELECT * FROM STUDENT")
+#cur.execute("SELECT NAME,AGE FROM STUDENT")
+#cur.execute("SELECT * FROM STUDENT  WHERE NAME='shyam'")
+#cur.execute("SELECT * FROM STUDENT  WHERE age=35")
+#cur.execute("SELECT * FROM STUDENT  LIMIT 3")
+#cur.execute("SELECT * FROM STUDENT  LIMIT 3 OFFSET 2") # will print from third row
+#cur.execute("SELECT * FROM STUDENT  WHERE AGE   BETWEEN 20 AND 30")
+#cur.execute("SELECT * FROM STUDENT  ORDER BY AGE")
+#cur.execute("SELECT * FROM STUDENT  ORDER BY AGE DESC")
+#cur.execute("SELECT COUNT(*) FROM STUDENT")  #  7
+#cur.execute("SELECT AVG(AGE) FROM STUDENT")  #    (Decimal('24.7142857142857143'),)
+#cur.execute("SELECT MAX(NAME) FROM STUDENT")  #   Suresh
+#cur.execute("SELECT MIN(NAME) FROM STUDENT")   #   hARI
+#cur.execute("SELECT MAX(AGE) FROM STUDENT")    #   35
+cur.execute("SELECT MIN(AGE) FROM STUDENT")#     #  11
+
+
+
+# fetch all rows
+rows=cur.fetchall()
+# print(rows)   # [(1, 'mithu', 22, 'jamni'), (2, 'ram', 25, 'bgp'), (3, 'shyam', 35, 'hyd'),
+              #  (4, 'santosh', 11, 'tamil'), (5, 'santosh', 21, 'bnglor'), (10, 'Suresh ', 29, 'Anhra'), (11, 'Hari ', 30, 'odisha')]
+
+for x in rows:
+    print(x)
+'''
+(1, 'mithu', 22, 'jamni')
+(2, 'ram', 25, 'bgp')
+(3, 'shyam', 35, 'hyd')
+(4, 'santosh', 11, 'tamil')
+(5, 'santosh', 21, 'bnglor')
+(10, 'Suresh ', 29, 'Anhra')
+(11, 'Hari ', 30, 'odisha')
+'''
+    
+    
+    
