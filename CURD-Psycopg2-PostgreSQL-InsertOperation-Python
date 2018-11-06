@@ -1,0 +1,95 @@
+create table in database using python code
+
+# import library
+import psycopg2
+# connect to postgreSQL db to Psycopg2
+try:
+    conn = psycopg2.connect(database = "mithu", user = "postgres", password = "postgre", host = "localhost", port = "5432")
+except:
+    print("I am unable to connect to the database") 
+# Activate connection cursor
+cur = conn.cursor()
+try:  
+    #  #  create table in database
+   cur.execute("CREATE TABLE STUDENT_PYTHON(ID INT,NAME TEXT, ADDRESS VARCHAR(20))")
+   # cur.execute("CREATE TABLE test1 (id serial PRIMARY KEY, num integer, name varchar());")
+except:
+    print("I can't drop our STUDENT_PYTHON database!")
+#  commit is mandetory
+conn.commit() # <--- makes sure the change is shown in the database
+conn.close()
+cur.close()
+--------------------------------------------------------------------------------------
+INSERT ONE RECORD IN CREATED DATABASE TABLE--
+# import psycopg module
+import psycopg2
+# connect to db 
+try:
+  connection=psycopg2.connect("dbname=mithu user=postgres password=postgre host=localhost port=5432")
+  print("connected to database u can perform CURD operation")
+except:
+    print("INVALID CREDENTAILS")
+# active connection cursor
+cursor=connection.cursor()
+try:
+ # insert the values
+  cursor.execute("INSERT INTO STUDENT_PYTHON VALUES(1,'MITHU','JAMNI')")
+  print("record insert successfully")
+except Exception as e:
+    print(e)
+# commit is mamdetory
+connection.commit();
+# close the onj
+connection.close()
+cursor.close()
+--------------------------------------------------------------------------------------------------
+INSERT MULTIPLE RECORD IN CREATED DATABASE TABLE--
+# import psycopg module
+import psycopg2
+# connect to db 
+try:
+  connection=psycopg2.connect("dbname=mithu user=postgres password=postgre host=localhost port=5432")
+  print("connected to database u can perform CURD operation")
+except:
+    print("INVALID CREDENTAILS")
+# active connection cursor
+cursor=connection.cursor()
+try:
+ # insert the values
+   #cursor.execute("INSERT INTO STUDENT_PYTHON VALUES(1,'MITHU','JAMNI')")
+  sql = "INSERT INTO STUDENT_PYTHON VALUES(%s, %s, %s)"
+  # for inseert singlr records
+  # val = (11, "Highway","pista")
+  #  for multiple records
+  val = [
+  (12,'Peter', 'Lowstreet 4'),
+  (13,'Amy', 'Apple st 652'),
+  (14,'Hannah', 'Mountain 21'),
+  (15,'Michael', 'Valley 345'),
+  (16,'Sandy', 'Ocean blvd 2'),
+  (17,'Betty', 'Green Grass 1'),
+  (18,'Richard', 'Sky st 331'),
+  (19,'Susan', 'One way 98'),
+  (20,'Vicky', 'Yellow Garden 2'),
+  (21,'Ben', 'Park Lane 38'),
+  (22,'William', 'Central st 954'),
+  (23,'Chuck', 'Main Road 989'),
+  (24,'Viola', 'Sideway 1633')
+  ]
+  # for insert single record   call this method
+  # cursor.execute(sql, val)
+  # for insert multiple record  call this method
+  cursor.executemany(sql, val)
+  print("record insert successfully")
+except Exception as e:
+    print(e)
+    #print(e.message)
+# commit is mamdetory
+connection.commit();
+# check howmany row inserted
+print(cursor.rowcount, "record inserted.")   #    1 record inserted.  if error would come then it ll print -1
+# print(cursor.rowcount+"record inserted.")   #  TypeError: unsupported operand type(s) for +: 'int' and 'str'
+# close the onj
+connection.close()
+cursor.close()
+    ---------------------------------------------------------------------------------------------------------
