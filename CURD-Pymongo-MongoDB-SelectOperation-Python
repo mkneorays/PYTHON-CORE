@@ -33,7 +33,8 @@ To select data from a table in MongoDB, we can also use the find() method.
 
 The find() method returns all occurrences in the selection.
 
-The first parameter of the find() method is a query object. In this example we use an empty query object, which selects all documents in the collection.
+The first parameter of the find() method is a query object. In this example we use an empty query object,
+which selects all documents in the collection.
 
 No parameters in the find() method gives you the same result as SELECT * in MySQL.
 
@@ -74,7 +75,8 @@ mycol = mydb["customers"]
 
 for x in mycol.find({},{ "_id": 0, "name": 1, "address": 1 }):
   print(x)
-You are not allowed to specify both 0 and 1 values in the same object (except if one of the fields is the _id field). If you specify a field with the value 0, all other fields get the value 1, and vice versa:
+You are not allowed to specify both 0 and 1 values in the same object (except if one of the fields is the _id field).
+If you specify a field with the value 0, all other fields get the value 1, and vice versa:
 
 Example
 This example will exclude "address" from the result:
@@ -124,7 +126,8 @@ for x in mydoc:
 Advanced Query
 To make advanced queries you can use modifiers as values in the query object.
 
-E.g. to find the documents where the "address" field starts with the letter "S" or higher (alphabetically), use the greater than modifier: {"$gt": "S"}:
+E.g. to find the documents where the "address" field starts with the letter "S" or higher (alphabetically),
+use the greater than modifier: {"$gt": "S"}:
 
 Example
 Find documents where the address starts with the letter "S" or higher:
@@ -173,4 +176,76 @@ for x in mydoc:
   '''
   {'_id': 10, 'name': 'Richard', 'address': 'Sky st 331'}
 {'_id': 14, 'name': 'Viola', 'address': 'Sideway 1633'}
+'''
+----------------------------------------------------------------------------------------
+Python MongoDB Sort
+Sort the Result
+Use the sort() method to sort the result in ascending or descending order.
+
+The sort() method takes one parameter for "fieldname" and one parameter for "direction" (ascending is the default direction).
+
+Example
+Sort the result alphabetically by name:
+
+import pymongo
+
+myclient = pymongo.MongoClient("mongodb://localhost:27017/")
+mydb = myclient["mydatabase"]
+mycol = mydb["customers"]
+
+mydoc = mycol.find().sort("name")
+
+for x in mydoc:
+  print(x)
+  '''
+  {'_id': 3, 'name': 'Amy', 'address': 'Apple st 652'}
+{'_id': 11, 'name': 'Ben', 'address': 'Park Lane 38'}
+{'_id': 7, 'name': 'Betty', 'address': 'Green Grass 1'}
+{'_id': 13, 'name': 'Chuck', 'address': 'Main Road 989'}
+{'_id': 4, 'name': 'Hannah', 'address': 'Mountain 21'}
+{'_id': 1, 'name': 'John', 'address': 'Highway37'}
+{'_id': 5, 'name': 'Michael', 'address': 'Valley 345'}
+{'_id': 2, 'name': 'Peter', 'address': 'Lowstreet 27'}
+{'_id': 8, 'name': 'Richard', 'address': 'Sky st 331'}
+{'_id': 6, 'name': 'Sandy', 'address': 'Ocean blvd 2'}
+{'_id': 9, 'name': 'Susan', 'address': 'One way 98'}
+{'_id': 10, 'name': 'Vicky', 'address': 'Yellow Garden 2'}
+{'_id': 14, 'name': 'Viola', 'address': 'Sideway 1633'}
+{'_id': 12, 'name': 'William', 'address': 'Central st 954'}
+  '''
+  
+Sort Descending
+Use the value -1 as the second parameter to sort descending.
+
+sort("name", 1) #ascending
+sort("name", -1) #descending
+
+Example
+Sort the result reverse alphabetically by name:
+
+import pymongo
+
+myclient = pymongo.MongoClient("mongodb://localhost:27017/")
+mydb = myclient["mydatabase"]
+mycol = mydb["customers"]
+
+mydoc = mycol.find().sort("name", -1)
+
+for x in mydoc:
+  print(x)
+'''
+{'_id': 12, 'name': 'William', 'address': 'Central st 954'}
+{'_id': 14, 'name': 'Viola', 'address': 'Sideway 1633'}
+{'_id': 10, 'name': 'Vicky', 'address': 'Yellow Garden 2'}
+{'_id': 9, 'name': 'Susan', 'address': 'One way 98'}
+{'_id': 6, 'name': 'Sandy', 'address': 'Ocean blvd 2'}
+{'_id': 8, 'name': 'Richard', 'address': 'Sky st 331'}
+{'_id': 2, 'name': 'Peter', 'address': 'Lowstreet 27'}
+{'_id': 5, 'name': 'Michael', 'address': 'Valley 345'}
+{'_id': 1, 'name': 'John', 'address': 'Highway37'}
+{'_id': 4, 'name': 'Hannah', 'address': 'Mountain 21'}
+{'_id': 13, 'name': 'Chuck', 'address': 'Main Road 989'}
+{'_id': 7, 'name': 'Betty', 'address': 'Green Grass 1'}
+{'_id': 11, 'name': 'Ben', 'address': 'Park Lane 38'}
+{'_id': 3, 'name': 'Amy', 'address': 'Apple st 652'}
 '''
