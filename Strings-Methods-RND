@@ -1,0 +1,52 @@
+
+
+s = "Hello World! Python"
+print len(s)  # 19
+#print s.upper()
+#print(s.lower())   
+#print s.capitalize() # Only the first letter in the string will be capitalized
+print s    # Hello World! Python
+#print s[0] # H
+#print s[1]  # e
+#print s[1:8] # ello Wo "Substring from index 1 to 7"
+#print s[1:]  # ello World! Python
+# print s[3:]  # lo World! Python
+# print s[:0]  # blank will print
+# print s[:1]  # H
+#Substring from the start till character at index = 7 (start of string is index 0)
+# print s[:7]  # Hell
+# print s[:9]  # Hello Wor
+
+#Find the position of a  substring within the string
+#This gives us the first index during a left to right scan. If the string is not found, it returns -1
+#print s.find('Pyth') # 13
+#print s.find('xxy')  # -1
+# "Now, trying to find a substring between specified indexes only: looking for 'l' between 4 and 9"
+# print s.find('l',4,9) # -1 (if not there -1 ll print)
+# rfind is used, to find the index from the reverse
+# So, testString1.rfind('l') will look for the last index of l in the string
+#print s.find('l')   # 2
+#print s.rfind('l')  # 9  reverse order start with 0
+
+# Now let us try to replace/substitute a substring of this string with another string
+# "Replacing World with Planet"
+#print s.replace("World","Planet")
+
+# Now let us try to split the string, into separate words
+# let us split it wherever there is a space
+#print s.split(" ")  #  ['Hello', 'World!', 'Python']
+#print s.rsplit(" ") #  ['Hello', 'World!', 'Python']
+
+# Remove leading and trailing whitespace characters like trim() method 
+s1 = " Hello World! "
+print s1       #  Hello World!  
+print len(s1)  # 15
+# if u want to cancatinate string and int follow below process
+print "size of string = "+`len(s1)` #  size of string = 15
+print "Length after stripping "+ `len(s1.strip())`  # Length after stripping 12
+
+
+
+
+
+
