@@ -64,6 +64,16 @@ print 'qA2'.islower()   # False
 print 'qA2'.isupper()   # False
 
 
+width = 20
+print 'HackerRank'.ljust(10,'-')     #  HackerRank
+print 'HackerRank'.ljust(width,'-')  #  HackerRank----------
+
+width = 20
+print 'HackerRank'.center(width,'-')  #  -----HackerRank-----
+
+width = 20
+print 'HackerRank'.rjust(width,'-')   #   ----------HackerRank
+
 
 
 
