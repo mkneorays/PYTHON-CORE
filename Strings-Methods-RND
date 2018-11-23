@@ -1,5 +1,4 @@
 
-
 s = "Hello World! Python"
 print len(s)  # 19
 #print s.upper()
@@ -45,7 +44,7 @@ print len(s1)  # 15
 print "size of string = "+`len(s1)` #  size of string = 15
 print "Length after stripping "+ `len(s1.strip())`  # Length after stripping 12
 
-# Hello World program in Python
+---------------------------------------------------------------------------------------------------------------
     
 print "Hello World!\n"
 # This method checks if all the characters of a string are alphanumeric (a-z, A-Z and 0-9).
@@ -73,6 +72,30 @@ print 'HackerRank'.center(width,'-')  #  -----HackerRank-----
 
 width = 20
 print 'HackerRank'.rjust(width,'-')   #   ----------HackerRank
+
+---------------------------------------------------------------------------------------------------
+text wrap
+--------
+import textwrap 
+ss="ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+print(textwrap.fill(ss,5))
+
+output
+-------
+ABCDE
+FGHIJ
+KLMNO
+PQRST
+UVWXY
+Z
+----------------------------------------------------------------------------------
+
+
+
+
+
+
+
 
 
 
