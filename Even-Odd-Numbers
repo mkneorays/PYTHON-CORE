@@ -1,0 +1,36 @@
+# write a program to print a no is even or odd
+def checkNo(no):
+    if no%2==0:
+        print 'no is even :',no
+    else:
+        print'no is odd :',no
+
+checkNo(5)
+
+----------------------------------------------------------------------
+# write a program to print first 10 odd numbers
+def checkNo(no):
+    count=1
+    while no>0:
+        print(count)
+        count=count+2
+        #no=no-1
+        no-=1
+checkNo(10)
+------------------------------------------------------------------------
+# write a program to print first 10 odd numbers
+def checkNo(no):
+    count=1
+    for x in range(no):
+        print(count)
+        count=count+2
+checkNo(10)
+------------------------------------------------------------------------------
+# write a program to print 0 to n  numbers
+def checkNo(no):
+    count=1
+    for x in range(0,no):
+        print(x)
+  
+checkNo(10)
+----------------------------------------------------------------------------------
