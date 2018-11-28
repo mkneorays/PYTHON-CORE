@@ -1,0 +1,36 @@
+# write a program to check length of string
+def checkNo(ss):
+    count=0
+    for x in ss:
+        count+=1
+       # count=count+1
+    print'Length of String is : ',count 
+checkNo('Mithileh Kumar')
+------------------------------------------------------------------------
+# write a program to check no is prime or not
+def check_prime_no(no):
+    count=0
+    for x in range(2,no):
+        if(no%x==0):
+            count=1
+            print 'Given no ',no,' is not Prime Number'
+            break
+    if count==0:
+         print 'Given no ',no,' is Primre Number'
+   
+check_prime_no(131)
+-----------------------------------------------------------------------------------------
+# write a program to print 1 to 100 and skip even no 
+def skip_no(no):
+    count=0
+    for x in range(1,no):
+        if x%2==0:
+            continue
+        print x
+         
+   
+skip_no(100)
+----------------------------------------------------------------------
+import keyword
+print(keyword.kwlist)
+-------------------------------------------------------------------------
