@@ -1,0 +1,24 @@
+# how to delete static variables
+---------------------------------------------
+-> within the class we should use  classname, cls variable 
+-> from outside of class only classname
+-------------------------------------------------------
+class test:
+    a=20
+    def __init__(self):
+        self.s=2
+        #del test.a
+        
+
+
+t=test()
+print(test.__dict__)
+#  outsid of class we need to use complusery class name
+#del t.a    # invalid to delete static  variable jvm will consider instance var
+del test.a  # valid for deleting static var
+'''
+{'__module__': '__main__', 'a': 20, '__init__':
+<function test.__init__ at 0x030FDA50>, '__dict__':
+<attribute '__dict__' of 'test' objects>, '__weakref__':
+<attribute '__weakref__' of 'test' objects>, '__doc__': None}
+'''
