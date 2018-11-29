@@ -1,0 +1,53 @@
+# from the class we can access global variables directly
+# within the method of a class we can declare global variables by using global keyword
+# actually its the functional programming cncept not oops cncpt
+# Global variable cant access using text.x and self.x 
+# Globle variables possible at class level and inside method using global keyword 
+
+x=200
+class test:
+    x=333
+    def m1(self):
+        print(x)      # 200  ( its accessing global variable )
+        print(test.x) # 333  ( its accessing instance variable )
+        print(self.x) # 333  ( its accessing instance variable )
+
+t=test()
+t.m1()
+print(x)      #  200   ( its accessing global variable )
+print(test.x) # 333   ( its accessing instance variable )
+
+------------------------------------------------------------------------
+x=200
+class test:
+    x=333
+    def m1(self):
+        x=111
+        print(x)      # 111  ( its accessing local variable )
+        print(test.x) # 333  ( its accessing instance variable )
+        print(self.x) # 333  ( its accessing instance variable )
+
+t=test()
+t.m1()
+print(x)      #  200   ( its accessing global variable )
+print(test.x) # 333   ( its accessing instance variable )
+----------------------------------------------------------------------------------
+class test:
+    def m1(self):
+        #global x=111 # here u can inilisize like that its syntax error
+        global x  # actually its the functional programming cncept not oops cncpt
+        x=222
+        print(x)      # 222  ( its accessing local variable )
+        #print(test.x) # 333     error
+        #print(self.x) # 333     error
+
+t=test()
+t.m1()
+print(x)      #  222   ( its accessing global variable )
+#print(test.x) #    error
+
+# Global variable cant access using text.x and self.x 
+# Globle variables possible at class level and inside method using global keyword 
+-------------------------------------------------------------------------------------------
+
+
