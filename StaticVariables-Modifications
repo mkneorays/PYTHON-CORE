@@ -1,0 +1,44 @@
+# how to modify static variables
+---------------------------------------------
+-> within the class we should use  classname, cls variable 
+-> from outside of class only classname
+
+---------------------------------------------------------------------------------------
+class test:
+    a=20
+    def __init__(self):
+        self.a=10   # its instance varible not update static veraible
+        test.B=15
+
+    @classmethod
+    def m1(cls):
+        cls.a=30
+        test.a=40
+
+    @staticmethod
+    def m2():
+        test.a=50
+
+t=test()
+#print(test.a)   # 20   static variable
+#print(t.a)      # 10   instance varible
+
+# after modifying static variable from constructor
+#print(test.a)   # 15   static variable
+#print(t.a)      # 10   instance varible
+
+#t.m1()
+#print(test.a)   # 30   static variable
+#print(t.a)      # 10   instance varible
+
+# after modifying static variable from classmethod
+#print(test.a)   # 40   static variable
+#print(t.a)      # 10   instance varible
+#t.m2()
+#print(test.a)   # 50   static variable
+#print(t.a)      # 10   instance varible
+# from out side of class to modify static variable only one way
+t.a=60      # it will modify instance var not static ver bcz of duplicate var
+print(test.a)   # 20   static variable
+print(t.a)      # 60   
+-----------------------------------------------------
