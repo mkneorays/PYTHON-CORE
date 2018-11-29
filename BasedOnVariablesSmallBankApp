@@ -1,0 +1,69 @@
+import sys
+class customer:
+    ''' customer class with bank related operations'''
+    bankname='SBI BANK'  # static var
+
+    def __init__(self,name,balance=0):
+        self.name=name          #  instance var
+        self.balance=balance    #  instance var
+
+    def deposit(self,amt):
+        self.balance=self.balance+amt
+        print('After deposit the balance is : ',self.balance)
+
+    def withdraw(self,amt):
+        if amt>self.balance:
+            print('Insufficent funds: cant perform this operations')
+            sys.exit()   #  is going to be stop  here only jvm
+        self.balance=self.balance-amt
+        print('after withdraw the balance is ',self.balance)
+
+print('welcome to ',customer.bankname)
+name=input('Enter your name')
+c=customer(name)
+while True:
+    print('d-Deposi\nw-withdrew\ne-Exit')
+    option=input('choose your option')
+    if option=='d' or option=='D':
+        amt=float(input('Enter teh  amount to  Deposite'))   # typecasting is hapenning
+        c.deposit(amt)
+    elif option=='w' or option=='W':
+        amt=float(input('Enter amount to withdrar: '))
+        c.withdraw(amt)
+    elif option=='e' or option=='E':
+        print('Thanks for Banking')
+        sys.exit()
+
+    else:
+        print('Choos valid option')
+'''
+welcome to  SBI BANK
+Enter your nameMithu'
+d-Deposi
+w-withdrew
+e-Exit
+choose your optionad
+Choos valid option
+d-Deposi
+w-withdrew
+e-Exit
+choose your optiond
+Enter teh  amount to  Deposite200
+After deposit the balance is :  200.0
+d-Deposi
+w-withdrew
+e-Exit
+choose your optionw
+Enter amount to withdrar: 100
+after withdraw the balance is  100.0
+d-Deposi
+w-withdrew
+e-Exit
+choose your optione
+Thanks for Banking
+'''
+
+
+
+
+
