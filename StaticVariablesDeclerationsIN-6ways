@@ -1,0 +1,67 @@
+# how to declere static variable 6 ways
+1. within the class directly but from outside of any method
+2. inside constructor by using classname 
+3. inside instance method by using classname
+4. inside classmethod by using cls variable or classname 
+5. inside static method by using classname
+6. from outside of class by using classname 
+-----------------------------------------------------------------------------
+class test:
+    a=10   # at class level
+    def __init__(self):
+        test.b=20   # inside constructor using class name
+
+    def m1(self):
+        test.c=30   # inside method using class name
+        
+    @classmethod
+    def m2(cls):
+        cls.d=40     # inside class method using class name
+        test.e=50    # inside  method using class name
+
+    @staticmethod
+    def m3():
+        test.f=60    # inside static method using class name
+
+test.g=70            # outside of class  using class name
+
+#print(test.__dict__)
+'''
+{'__module__': '__main__', 'a': 10, '__init__':
+<function test.__init__ at 0x0335DA50>, 'm1':
+<function test.m1 at 0x035EAFA8>, 'm2':
+<classmethod object at 0x0359D250>, 'm3':
+<staticmethod object at 0x035DEBD0>, '__dict__':
+<attribute '__dict__' of 'test' objects>, '__weakref__':
+<attribute '__weakref__' of 'test' objects>, '__doc__': None, 'g': 70}
+note-only two r avaliable right now
+'''
+t=test()
+#print(test.__dict__)
+'''
+{'__module__': '__main__', 'a': 10, '__init__':
+<function test.__init__ at 0x02DEAFA8>, 'm1':
+<function test.m1 at 0x02DEF030>, 'm2': <classmethod object at 0x02D9D290>,
+'m3': <staticmethod object at 0x02AD12F0>, '__dict__':
+<attribute '__dict__' of 'test' objects>, '__weakref__':
+<attribute '__weakref__' of 'test' objects>,
+'__doc__': None, 'g': 70, 'b': 20} '''
+t.m1()
+test.m2()
+test.m3()
+print(test.__dict__)
+'''
+{'__module__': '__main__', 'a': 10, '__init__':
+<function test.__init__ at 0x02B6DA50>, 'm1':
+<function test.m1 at 0x02DFAFA8>, 'm2':
+<classmethod object at 0x02DAD210>, 'm3':
+<staticmethod object at 0x02DEEBB0>, '__dict__':
+<attribute '__dict__' of 'test' objects>, '__weakref__':
+<attribute '__weakref__' of 'test' objects>, '__doc__':
+None, 'g': 70, 'b': 20, 'c': 30, 'd': 40, 'e': 50, 'f': 60}
+'''
+
+
+
+
+
