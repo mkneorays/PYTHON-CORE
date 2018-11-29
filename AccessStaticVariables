@@ -1,0 +1,55 @@
+Note-we can access static variables either by classname or by object reference
+with in the class
+-> classname,self, cls
+outsidfe of the class
+-> object reference, classname 
+-----------------------------------------------------------------------------------
+class test:
+    a=10
+    def __init__(self):
+        print("inside constructor")
+        print(test.a)   #  10   (first way)
+        print(self.a)   #  10   (second way)
+
+    def m1(self):
+        print("inside of instance method")
+        print(test.a)   #  10   (first way)
+        print(self.a)   #  10   (second way)
+        
+    @classmethod
+    def m2(cls):
+        print("inside of class method")
+        print(test.a)   #  10   (first way)
+        
+
+    @staticmethod
+    def m3():
+        print("inside static method")
+        print(test.a)   #  10   (first way)
+        
+
+t=test()
+t.m1()
+t.m2()
+t.m3()
+print("from  outside of class")
+print(test.a)  #  10 using class name  (recummended)
+print(t.a)     #   10   using obj reference
+
+'''
+
+inside constructor
+10
+10
+inside of instance method
+10
+10
+inside of class method
+10
+inside static method
+10
+from  outside of class
+10
+10
+'''
+
