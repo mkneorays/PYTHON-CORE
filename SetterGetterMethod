@@ -1,0 +1,41 @@
+class student:
+    
+    def setname(self,name):
+        self.name=name
+        
+    def getname(self):
+        return self.name
+    
+    def setmarks(self,marks):
+        self.marks=marks
+        
+    def getmarks(self):
+        return self.marks
+
+n=int(input('Enters no of student'))
+count=1
+while(count<=n):
+#for r in range(n):
+    name=input('Enter Student Name')
+    marks=int(input('Enter students marks'))
+    s=student()
+    s.setname(name)
+    s.setmarks(marks)
+    print('Hii...Your Name:: ',s.getname())
+    print('Hello...Your Marks:: ',s.getmarks())
+    print('*'*20)
+    count=count+1
+
+'''
+Enters no of student2
+Enter Student Namemithu'
+Enter students marks345
+Hii...Your Name::  mithu'
+Hello...Your Marks::  345
+********************
+Enter Student Nameyougesh
+Enter students marks765
+Hii...Your Name::  yougesh
+Hello...Your Marks::  765
+********************
+'''
