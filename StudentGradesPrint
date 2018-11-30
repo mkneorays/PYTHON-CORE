@@ -1,0 +1,42 @@
+   class student:
+    def __init__(self,name,marks):
+        self.name=name
+        self.marks=marks
+    def display(self):
+        print('Student Name :',self.name)
+        print('Student Marks :',self.marks)
+    def grades(self):
+        if self.marks>=60:
+            print('First Grade')
+        elif self.marks>=50:
+            print('Second Grade')
+        elif self.marks>=40:
+            print('Third Grade')
+        else:
+            print('You are fail')
+
+n=int(input('Enters no of student'))
+for r in range(n):
+    name=input('Enter Student Name')
+    marks=int(input('Enter students marks'))
+    s=student(name,marks)
+    s.display()
+    s.grades()
+    print('*'*20)
+
+'''
+Enters no of student2
+Enter Student Namexxxx
+Enter students marks44
+Student Name : xxxx
+Student Marks : 44
+Third Grade
+********************
+Enter Student Namerrrrr
+Enter students marks666
+Student Name : rrrrr
+Student Marks : 666
+First Grade
+********************
+'''
+    
