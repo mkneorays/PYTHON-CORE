@@ -1,0 +1,91 @@
+# without existing one type of object if there is no chance od existing another type
+# of object then we should go for inner classes
+class emp:
+    def __init__(self,no,name,salary):
+        self.no=no
+        self.name=name
+        self.salary=salary
+
+    def displayEmp(self):
+        print('Employe Details :',self.no,self.name,self.salary)
+
+class student:
+# based on the calling we decide either instance or static method below both
+# for this class need to  call using class name
+# if u want to use using onj ref then have to decelere @staticmethod
+    def modify(emp):
+        emp.salary=emp.salary+1000
+        emp.displayEmp()
+        #student.modify1()
+
+    def modify1():
+        em=emp(12,'ravi',40000)
+        em.displayEmp()  # Employe Details : 12 ravi 40000
+    
+
+e=emp(11,'mithilesh',30000)
+e.displayEmp()   #  Employe Details : 11 mithilesh 30000
+student.modify(e)#  Employe Details : 11 mithilesh 31000
+e.displayEmp()   #  Employe Details : 11 mithilesh 31000
+student.modify1()#  # Employe Details : 12 ravi 40000
+------------------------------------------------------------------------------------------------------
+# if u want to call inner class method we need to create first outer class object
+# then by using outer class obj create inner class obj then call inner class  method
+class outer:
+    def __init__(self):
+        print('outer class object')
+    def m2(self):
+        print('outer class method')
+
+    class inner:
+        def __init__(self):
+            print('outer class object')
+
+        def m1(self):
+            print('inner class method')
+
+o=outer()  #  in this statement inner class won't create
+i=o.inner()#  here inner object ready
+i.m1()
+i.m2()  # not possibe error will come 
+print('-'*20)
+i1=outer().inner()
+print('-'*20)
+outer().inner().m1()
+'''
+outer class object
+outer class object
+inner class method
+--------------------
+outer class object
+outer class object
+--------------------
+outer class object
+outer class object
+inner class method
+'''
+        
+----------------------------------------------------------------------------------
+class person:
+    def __init__(self):
+        self.name='Mithilesh'
+        self.dob=self.dob()
+    def display(self):
+        print('Name :',self.name)
+        self.dob.displayInner()
+
+    class dob:
+        def __init__(self):
+            self.dd=12
+            self.mm=4
+            self.yyyy=2000
+        def displayInner(self):
+            print('DOB={}/{}/{}'.format(self.dd,self.mm,self.yyyy))# DOB=12/4/2000
+
+p=person()
+p.display()
+'''
+Name : Mithilesh
+DOB=12/4/2000
+'''
+-------------------------------------------------------------------------------------
