@@ -1,0 +1,33 @@
+ # 
+
+class test:
+    def m1(self):
+        def sum(a,b):
+            print('first argument',a)
+            print('second argument',b)
+            print('sum is :',a+b)
+            print('prduct is :',a*b)
+            print('*'*20)
+
+        sum(10,20)
+        sum(20,30)
+        sum(40,50)
+t=test()
+t.m1()
+'''
+first argument 10
+second argument 20
+sum is : 30
+prduct is : 200
+********************
+first argument 20
+second argument 30
+sum is : 50
+prduct is : 600
+********************
+first argument 40
+second argument 50
+sum is : 90
+prduct is : 2000
+********************
+'''
