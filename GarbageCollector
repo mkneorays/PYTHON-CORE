@@ -1,0 +1,76 @@
+import sys
+import time
+import gc
+'''
+print(gc.isenabled())  # True
+gc.disable()
+print(gc.isenabled())  # False
+gc.enable()
+print(gc.isenabled())  # True
+
+'''
+# Destructors
+# ------------
+# constructors -: __init__(self) not to construct obj only perform initializations
+# destructor  -: __del__(self) its same as its finalize() method not to destroy obj only clean up activities
+class test:
+    def __init__(self):
+        print('object initializations...')
+    def __del__(self):
+        print('clean up performations')
+
+'''
+t1=test()
+t2=t1
+t3=t2
+t4=t3
+print(sys.getrefcount(t1)) #  5  references there
+'''
+print(gc.isenabled())
+print('hiii list')
+list=[test(),test(),test()]
+#del list
+time.sleep(10)
+print('list is nt required')
+time.sleep(10)
+print('hey list')
+'''
+hiii
+object initializations...
+object initializations...
+object initializations...
+clean up performations
+clean up performations
+clean up performations
+hey
+'''
+'''
+t=test()
+t=None
+time.sleep(5)
+print('end of applivation')
+---------------
+True
+False
+True
+object initializations...
+clean up performations
+end of applivation
+'''
+
+'''
+t1=test()
+t2=t1
+t3=t2
+del t1
+del t2
+del t3
+time.sleep(5)
+print('end of applivation')
+
+
+object initializations...
+clean up performations
+end of applivation
+'''
+
