@@ -1,0 +1,64 @@
+# inside class method we can acces only class labels
+#variables nothing but static variables only
+# we can call this method either by using obj ref or by using class name but recommended by class name
+# here @classmethod decerator is mandetory
+
+# inside instance method we can acces both class lavels
+#variables nothing but static variables and instance var
+# we can call instance method by using obj ref
+# inside instance method self is mandetory 
+
+# if u r not using any instance var and any static var inside method body the we should go for static methods
+# just general utility methods/helper methods
+# using class name we can call no need to create object or we can use object ref also
+# here @staticmethod decerator is not  mandetory upon sistuation
+-----------------------------------------------------------------------------------------------
+class test:
+    bankname='SBI Bank'
+    collegename='S.I.E.T'
+    legs=4
+    count=0
+
+    def __init__(self):
+        test.count=test.count+1
+    @classmethod
+    def getNoOfObjects(cls):
+        print('The number of objects are created :',cls.count)   #   The number of objects are created : 3
+    
+# inside instance method we can acces both class lavels
+#variables nothing but static variables and instance var
+# we can call instance method by using obj ref
+# inside instance method self is mandetory 
+    def m1(self,name,age):
+        self.name=name
+        self.age=age
+        print(self.name)
+        print(self.age) 
+# inside class method we can acces only class labels
+#variables nothing but static variables only
+# we can call this method either by using obj ref or by using class name but recommended by class name
+# here @classmethod decerator is mandetory
+    @classmethod
+    def m2(cls,name):
+        print('{} walks with {} legs'.format(name,cls.legs))  # dogs walks with 4 legs
+# if u r not using any instance var and any static var inside method body the we should go for static methods
+# just general utility methods/helper methods
+# using class name we can call no need to create object or we can use object ref also
+# here @staticmethod decerator is not  mandetory upon sistuation
+    @staticmethod
+    def  sum(x,y):
+        print('The sum :',x+y)  # The sum : 10
+# below method also static metod but always u have to call class name not any obj reference
+    def sum1():
+        print('some method')   #  some method
+
+test.m2('dogs')
+t1=test()
+t2=test()
+t3=test()
+test.getNoOfObjects()
+test.sum(2,8)
+t1.sum(3,3)
+# below code calling static method
+test.sum1()
+        
