@@ -81,6 +81,7 @@ class person:
             self.yyyy=2000
         def displayInner(self):
             print('DOB={}/{}/{}'.format(self.dd,self.mm,self.yyyy))# DOB=12/4/2000
+            print('DOB={}/{}/{}'.format(dd,mm,yyyy))# DOB=12/4/2000
 
 p=person()
 p.display()
