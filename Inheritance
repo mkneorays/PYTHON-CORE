@@ -1,0 +1,25 @@
+# in python all types of inheritance are possibe except cyclic inheritance
+# manily use for code resuability and extend functionality
+
+
+
+class parent:
+    def  property(self):
+        print('parent method ')
+
+    def marry(self):
+        print('suvalaxhmi ')
+
+#class child(parent): pass     # this is the one way to write child class 
+class child (parent):     #   but this is recommended
+    def marry(self):
+        super().marry()    #   suvalaxhmi 
+        print('versha')    # versha
+
+c=child()
+c.property()
+c.marry()
+'''
+parent method 
+suvalaxhmi
+'''
