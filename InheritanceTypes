@@ -1,0 +1,106 @@
+# composition vs aggregation:  (both r only has-a relationship)
+# boyfriend vs girl friend
+# without u i cant be =Strong association  -> COMPOSITION
+#without u also i cab be =weak association -> AGGREGATION
+#university vs depratment->strong association
+# department vs professor->week association
+'''
+TYPES OF INHERITANCE
+single inheritance
+multi level  inheritance
+Hierarchical inheritance
+multiple inheritance
+hybrid inheritance
+cyclic inheritance (not allowed)
+'''
+# SINGLE LEVEL/SIMPLE INHERITANCE
+'''
+class Parent:
+    def m1(self):
+        print('parent method')
+
+class Child(Parent):
+    def m2(self):
+        print('child method')
+
+c=Child()
+c.m1()   #   parent method
+c.m2()   #   child method
+'''
+#  MULTI LAVEL INHERITANCE
+'''
+class A:
+    def m1(self):
+        print('A m1() method')
+
+class B(A):
+    def m2(self):
+        print('B m2() method')
+class C(B):
+    def m3(self):
+        print('C m3() method')
+
+c=C()
+c.m1()   #   A m1() method
+c.m2()   # B m2() method
+c.m3()   # C m3() method
+'''
+# HIERARCHICAL INHERITANCE  (one parent has multiple childs)
+'''
+class A:
+    def m1(self):
+        print('A m1() method')
+
+class B(A):
+    def m2(self):
+        print('B m2() method')
+class C(A):
+    def m3(self):
+        print('C m3() method')
+
+c=C()
+c.m1()   # A m1() method
+c.m3()   # C m3() method
+b=B()
+b.m1()  #  A m1() method
+b.m2()   #  B m2() method
+'''
+# MULTIPLE INHERITANCE (one child has multiple parents)
+# java not support problem like ambiguity prblm & dimond prblm calling techenical word
+'''
+class A:
+    def m1(self):
+        print('A m1() method')
+
+class B:
+    def m1(self):
+        print('B m1() method')
+class C(A,B):
+    def m3(self):
+        print('C m3() method')
+
+c=C()
+c.m1()   # A m1() method (bcoz A class is decelere first based on order of parent)
+c.m3()   # C m3() method
+'''
+# HYBRID INHERITANCE (combinations of two or more inheritance )
+
+
+# CYCLIC INHERITANCE (not support by python or java also)
+# if a class extends same  class ia called cyclic inheritance
+'''
+class A(A)   # extending itself
+-----------------------------------
+class A(B):
+
+class B(A)
+--------------------------------
+'''
+
+
+
+
+
+
+
+
