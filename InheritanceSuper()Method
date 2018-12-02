@@ -1,0 +1,122 @@
+
+# super() method
+# to call parent class constructor and methods
+# from call child class members to parent class members its very usefull
+---------------------------------------------------------------------
+single level inheritance used super() call
+
+class person:
+    def __init__(self,name,age):
+        self.name=name
+        self.age=age
+    def display(self):
+        print('name= ',self.name)
+        print('age= ',self.age)
+        
+
+class student(person):
+    def __init__(self,name,age,rollno):
+        self.name=name  # duplication prblm
+        self.age=age     # duplication prblm
+        self.rollno=rollno
+class teacher(person):
+    def __init__(self,name,age,salary):
+        super().__init__(name,age) # code resubality
+        self.salary=salary
+    def display(self):
+        super().display()
+        print('salary= ',self.salary)
+        
+s=student('ravi',23,99)
+# above only will create student class obj not will call parent class person but in java different process
+t=teacher('Nataraz',34,40000)
+# above line will create teacher and person class obj call parent class person same as java  process
+t.display()
+'''
+name=  Nataraz
+age=  34
+salary=  40000
+'''
+------------------------------------------------------------------------------------
+#inside multile level inheritance super()
+# 2 ways to call patricular super class 
+# 1) using class name (parentclass.methodname(self))
+# 2) super(A,self).m1() it will call one level super class method
+
+class A:
+    def m1(self):
+        print('A class method')
+
+class B(A):
+    def m1(self):
+        print('B class method')
+class C(B):
+    def m1(self):
+        print('C class method')
+class D(C):
+    def m1(self):
+        A.m1(self)    #  A class method
+        print('D class method')
+class E(D):
+    def m1(self):
+        super(B,self).m1() #  A class method
+        #super().m1() # it will call always one level super class
+        print('E class method')
+
+e=E()
+e.m1()  #  E class method
+--------------------------------------------------------------------------------------
+# from child class we cant call super class instance var compulsery we can use self 
+# from child class by using super() method we caan call static var
+
+class P:
+    a=10
+    def __init__(self):
+        self.b=20
+
+class C(P):
+    def m1(self):
+        print(super().a)   #  10
+        #print(super().b)  # error wil come
+        print(self.b)      # 20
+
+c=C()
+c.m1()
+-------------------------------------------------------------------------------------
+
+class P:
+    def __init__(self):
+        self.b=20
+        print('parent constructor')
+    def m1(self):
+        print('instance method of parent')
+
+    @staticmethod
+    def m2():
+        print('m2() static method of parent')
+
+    @classmethod
+    def m3(cls):
+        print('class method of m3() of parent')
+
+class C(P):
+    def __init__(self):
+        super().__init__()  #  parent constructor
+        super().m1()        #  instance method of parent
+        super().m2()        # m2() static method of parent
+        super().m3()        #  class method of m3() of parent
+    
+c=C()
+#c.m1()
+class B(P):
+    def method(self):
+        super().__init__()  #  parent constructor
+        super().m1()        #  instance method of parent
+        super().m2()        # m2() static method of parent
+        super().m3()        #  class method of m3() of parent
+
+b=B()
+b.method()
+-------------------------------------------------------------------------------------
+
+
