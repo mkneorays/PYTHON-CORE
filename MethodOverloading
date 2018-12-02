@@ -1,0 +1,60 @@
+# in python wont provide support method/constructor overloading
+class test:
+    def m1(self,i):
+           print(i)
+
+
+t=test()
+t.m1(10)     #   10
+t.m1('string')#  string
+t.m1(12.22)   #   12.22
+t.m1(10+20j)  #   (10+20j)
+# its means there is not required of overloading in python we can achive directly
+
+class test1:
+    def sum(self,a=None,b=None,c=None):
+        if a!=None and b !=None and c!=None:
+            print('The sum of three no: ',a+b+c)
+        elif a!=None and b!= None:
+            print('The sum of two values :',a+b)
+        else:
+            print('Please provide 2 or 3 arguments')
+
+    def sum1(self,*a):
+        total=0
+        for x in a:
+            total=total+x
+            print('The Sum is : ',total)
+
+    def m2(self,*a):
+        total=''
+        for x in a:
+            total=total+' '+x
+        print('The Results : ',total)
+
+t1=test1()
+t1.sum(1,2,3)
+t1.sum(1,2)
+t1.sum(1)
+'''
+The sum of three no:  6
+The sum of two values : 3
+Please provide 2 or 3 arguments
+'''
+print('-'*20)
+t1.sum1(1,2,3)
+'''
+The Sum is :  1
+The Sum is :  3
+The Sum is :  6
+'''
+print('='*20)
+t1.m2('mithu')
+t1.m2('qqq','www')
+t1.m2('qqq','www','xxx')
+'''
+The Results :   mithu
+The Results :   qqq www
+The Results :   qqq www xxx
+'''
+---------------------------------------------------------------------
