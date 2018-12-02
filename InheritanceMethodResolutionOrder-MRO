@@ -1,5 +1,6 @@
 # HYBRID INHERITANCE (combinations of two or more inheritance)
 # special Algorithm MethoodResolutionOrder (MRO)
+'''
 class A:
     def m1(self):
         print('A class method m1()')
@@ -13,3 +14,16 @@ print(B.mro())
 # this is the order of herirachy
 # [<class '__main__.B'>, <class '__main__.A'>, <class 'object'>]
 
+'''
+class D :pass
+class E:pass
+class F:pass
+class B(D,E):pass
+class C(D,F):pass
+class A(B,C):pass
+a=A()
+#a.m1() # A+B+C+D+E+F
+print(A.mro())
+[<class '__main__.A'>, <class '__main__.B'>, <class '__main__.C'>,
+ <class '__main__.D'>, <class '__main__.E'>, <class '__main__.F'>,
+ <class 'object'>]
