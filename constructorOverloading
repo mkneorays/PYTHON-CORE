@@ -1,0 +1,18 @@
+# if u define multiple constructor with overloading concept it will always take
+#  care last one 
+class test:
+    def __init__(self,a=None,b=None,c=None):
+        print('constructors with 0,1,2,3 arguments')
+        '''
+    def __init__(self,*a):
+        print('whatever u want can pass hahahaha')
+'''
+
+test()
+test(11)
+test(3,2,4)
+'''
+constructors with 0,1,2,3 arguments
+constructors with 0,1,2,3 arguments
+constructors with 0,1,2,3 arguments
+'''
