@@ -1,0 +1,65 @@
+#  whenever we r callinf + operator then __add__ method will called
+# whenever we are printing book obj ref then __str__ method will be called
+
+# when ever we are printig any object reference /object then __str__ wil be called
+# by jvm if u are not overridding then by default it will called
+
+class book:
+    def __init__(self,pages):
+        self.pages=pages
+# can change __add__ name its user defined
+    def __add__(self,other):
+        return self.pages+other.pages
+
+    def __sub__(self,other):
+        return self.pages-other.pages
+    def __mul__(self,other):
+        return self.pages*other.pages
+    def __div__(self,other):
+        return self.pages/other.pages
+# its look like overriddinf hashcode method as java 
+    def __str__(self):
+        return 'The no of page :'+str(self.pages)
+        #return 'mithu'
+    def __add__(self,other):
+        total=self.pages+other.pages
+        b=book(total)
+        return b
+    '''   like that we can do also
+    def __add__(self,other):
+        total=self.pages*other.pages
+        b=book(total)
+        return b   '''
+    
+
+b1=book(100)
+#print(b1)   #  <__main__.book object at 0x02E4D250>
+print(b1)    #  mithu
+print(b1)    # The no of page :100
+b2=book(200)  
+b3=book(400)
+b4=book(500)
+print(b1+b2)  #  300
+print(b3+b2)  #  600
+print(b1*b2)  # 20000
+print(b3-b2)  #  200
+#print(b1/b2)  # error is comming we need to solve
+print(b1+b2+b3) #  The no of page :700
+print(b1+b2+b3+b4) #   The no of page :1200
+print(b1+b2*b3+b4)
+------------------------------------------------------------------------------------
+class test:
+    def __init__(self,name,marks):
+        self.name=name
+        self.marks=marks
+# u cant change name of method __lt__ it is predefined
+    def __lt__(self,other):
+        return self.marks<other.marks
+
+s1=test('mithu',100)
+s2=test('ravi',200)
+print(s1<s2)   #  True
+print(s1>s2)    # False
+-----------------------------------------------------------------------
+
+
