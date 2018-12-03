@@ -1,0 +1,36 @@
+# if one thread want to wait until this is not cmpleted
+# its mean one thread dependent on another thread
+from threading import *
+import time
+def display():
+    for i in range(10):
+        print('Mithu child thread')
+        time.sleep(1)
+t=Thread(target=display)
+t.start()
+#t.join() #  its means main thread will wait until cmpleated child thread
+t.join(5) #  its means main thread will wait until 5sec for child thread
+for i in range(10):
+    print('main thread')
+'''
+Mithu child thread
+Mithu child thread
+Mithu child thread
+Mithu child thread
+Mithu child thread
+main thread
+main thread
+main thread
+main thread
+main thread
+Mithu child thread
+main thread
+main thread
+main thread
+main thread
+main thread
+Mithu child thread
+Mithu child thread
+Mithu child thread
+Mithu child thread
+'''
