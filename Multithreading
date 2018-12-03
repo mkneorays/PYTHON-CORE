@@ -1,0 +1,102 @@
+# if jobs are independent then we can go threading concept
+# process based multitasking is OS level normally but application based also there if u used octa & quard quor
+# thread ia a part of one process, a flow of execution is considered as a thread
+# ingeneral every web app by default can take 60 req simunaltusenly
+# for every req one thread will create
+# in python by default create one thread which name is, MainThread
+# main thread ia responsible to create child thread and start also,once child thread
+# started it will become seprate from main thread
+'''
+3 way to define a thread
+1> creating a thread without using any class
+2> creatingg a thread by extending Thread class
+3> creating a thread without extending Thread class
+
+
+
+import threading    #  not recommended
+#from threading import *
+#threading.current_thread()
+print('currenting thread :',threading.current_thread().getName()) # currenting thread : MainThread
+print('hello')
+'''
+
+# 1> creating a thread without using any class
+from threading import *
+import threading
+def display():
+    for i in range(10):
+        print('child thread name',current_thread().getName())  # Thread-1
+# above for loop responsible to child thread
+# main thread ia responsible to create child thread and start also,once child thread
+# started it will become seprate from main thread
+t=Thread(target=display) # creation of thread obj to excute display
+t.start()
+
+for i in range(10):
+    print('main thread  ')
+print('main thread name :',threading.current_thread().getName()) #main thread name : MainThread
+# above for loop responsible to main thread
+'''
+child thread
+main thread
+main thread
+main thread
+main thread
+main thread
+child thread
+main thread
+child thread
+child thread
+child thread
+child thread
+child thread
+child thread
+child thread
+child thread
+main thread
+main thread
+main thread
+main thread
+we cant except o/p
+'''
+
+------------------------------------------------------------------------------------
+# this is oop style creating thread
+# 2> creatingg a thread by extending Thread class
+
+
+from threading import *
+class MyThread(Thread):
+    def run(self):
+        for i in range(10):
+            print('child Thread')
+t=MyThread()
+t.start()
+for i in range(10):
+    print('main thread')
+'''
+child Thread
+main thread
+child Thread
+main thread
+child Thread
+main thread
+child Thread
+main thread
+child Thread
+main thread
+child Thread
+main thread
+child Thread
+main thread
+child Thread
+main thread
+child Thread
+main thread
+main thread
+child Thread
+'''
+-----------------------------------------------------------------------------------------
+
+
