@@ -1,0 +1,46 @@
+
+# using multithreading concept see how much time its take
+import time
+from threading import *
+def display():
+    print(current_thread().name,'......started')
+    time.sleep(2)
+    print(current_thread().name,'......ended')
+print('The no of thread active: ',active_count()) #  The no of thread active:  2 
+t1=Thread(target=display,name='Child Thread 1')
+t2=Thread(target=display,name='Child Thread 2')
+t3=Thread(target=display,name='Child Thread 3')
+t1.start()
+t2.start()
+t3.start()
+print('The no of thread active: ',active_count())
+time.sleep(10)
+print('The no of thread active: ',active_count())
+'''
+The no of thread active:  1
+Child Thread 1 ......started
+Child Thread 2 ......started
+Child Thread 3 ......started
+The no of thread active:  4
+Child Thread 1 ......ended
+Child Thread 2 ......ended
+Child Thread 3 ......ended
+The no of thread active:  1
+'''
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
