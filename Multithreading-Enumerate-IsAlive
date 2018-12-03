@@ -1,0 +1,77 @@
+#  Multithreading-enumerate
+
+# using multithreading concept see how much time its take
+import time
+from threading import *
+def display():
+    print(current_thread().name,'......started')
+    time.sleep(2)
+    print(current_thread().name,'......ended')
+print('The no of thread active: ',active_count()) #  The no of thread active:  2 
+t1=Thread(target=display,name='Child Thread 1')
+t2=Thread(target=display,name='Child Thread 2')
+t3=Thread(target=display,name='Child Thread 3')
+t1.start()
+t2.start()
+t3.start()
+l=enumerate()
+for t in l:
+    print('Thread name',t.name)
+    print('Thread ID ',t.ident)
+    print()
+    
+'''
+The no of thread active:  1
+Child Thread 1 ......started
+Child Thread 2 ......started
+Child Thread 3 ......started
+Thread name MainThread
+Thread ID  12524
+
+Thread name Child Thread 1
+Thread ID  11160
+
+Thread name Child Thread 2
+Thread ID  12696
+
+Thread name Child Thread 3
+Thread ID  12380
+
+Child Thread 1 ......ended
+Child Thread 2 ......ended
+Child Thread 3 ......ended
+'''
+------------------------------------------------------------------------------------------
+#  Multithreading-enumerate
+
+# using multithreading concept see how much time its take
+import time
+from threading import *
+def display():
+    print(current_thread().name,'......started')
+    time.sleep(2)
+    print(current_thread().name,'......ended')
+print('The no of thread active: ',active_count()) #  The no of thread active:  2 
+t1=Thread(target=display,name='Child Thread 1')
+t2=Thread(target=display,name='Child Thread 2')
+t1.start()
+t2.start()
+print(t1.name,'is Alive',t2.isAlive())
+print(t2.name,'is Alive',t2.isAlive())
+time.sleep(10)
+print(t1.name,'is Alive after 10 sec',t2.isAlive())
+print(t2.name,'is Alive after 10 sec',t2.isAlive())
+
+    
+'''
+The no of thread active:  1
+Child Thread 1 ......started
+Child Thread 2 ......started
+Child Thread 1 is Alive True
+Child Thread 2 is Alive True
+Child Thread 1 ......ended
+Child Thread 2 ......ended
+Child Thread 1 is Alive after 10 sec False
+Child Thread 2 is Alive after 10 sec False
+
+'''
