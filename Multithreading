@@ -1,3 +1,4 @@
+# biggest advantage of multithreading  performance will improve
 # if jobs are independent then we can go threading concept
 # process based multitasking is OS level normally but application based also there if u used octa & quard quor
 # thread ia a part of one process, a flow of execution is considered as a thread
@@ -21,7 +22,7 @@ print('currenting thread :',threading.current_thread().getName()) # currenting t
 print('hello')
 '''
 
-# 1> creating a thread without using any class
+# 1> creating a thread without using any class   (this  is functional oriented way)
 from threading import *
 import threading
 def display():
@@ -98,5 +99,116 @@ main thread
 child Thread
 '''
 -----------------------------------------------------------------------------------------
+# 3> creating a thread without extending Thread class
+# without extending Thread class but still will call OOP way
+from threading import  *
+class test:
+    def m1(self):
+        for i in range(10):
+            print('child thread')
+obj=test()
+t=Thread(target=obj.m1)
+t.start()
+for i in range(10):
+    print('main thread')
 
+'''
+child thread
+main thread
+child thread
+main thread
+child thread
+main thread
+child thread
+main thread
+child thread
+main thread
+child thread
+child thread
+main thread
+main thread
+child thread
+main thread
+child thread
+child thread
+main thread
+main thread
 
+'''
+----------------------------------------------------------------------------------------
+#TIME CALCULATION WHICH ONE IS GOOD MAIN THREAD OR MULTITHREAD
+
+'''
+# using main method only
+import time
+def doubles(numbers):
+    for n in numbers:
+        time.sleep(1)
+        print('Double value :',2*n)
+
+def squares(numbers):
+    for n in numbers:
+        time.sleep(1)
+        print('Squares value :',n*n)
+
+numbers=[1,2,3,4,5,6]
+begintime=time.time()
+doubles(numbers)
+squares(numbers)
+endtime=time.time()
+print('The total time taken: ',endtime-begintime)
+
+Double value : 2
+Double value : 4
+Double value : 6
+Double value : 8
+Double value : 10
+Double value : 12
+Squares value : 1
+Squares value : 4
+Squares value : 9
+Squares value : 16
+Squares value : 25
+Squares value : 36
+The total time taken:  12.20591425895691
+'''
+# using multithreading concept see how much time its take
+import time
+from threading import *
+def doubles(numbers):
+    for n in numbers:
+        time.sleep(1)
+        print('Double value :',2*n)
+
+def squares(numbers):
+    for n in numbers:
+        time.sleep(1)
+        print('Squares value :',n*n)
+
+numbers=[1,2,3,4,5,6]
+begintime=time.time()
+t1=Thread(target=doubles,args=(numbers,)) # we hv to pass tupile as a args
+t2=Thread(target=squares,args=(numbers,))
+t1.start()
+t2.start()
+
+t1.join() # if thred want to waits until other thread here main thread will wait until cmplt t1
+t2.join() # if thred want to waits until other thread here main thread will wait until cmplt t2
+
+endtime=time.time()
+print('The total time taken: ',endtime-begintime)
+'''
+Squares value : 1
+Double value : 2
+Squares value : 4
+Double value : 4
+Squares value : 9
+Double value : 6
+Squares value : 16
+Double value : 8
+Squares value : 25
+Double value : 10
+Squares value : 36
+Double value : 12
+The total time taken:  6.009359121322632
+'''
