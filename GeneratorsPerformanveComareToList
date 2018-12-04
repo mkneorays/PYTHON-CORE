@@ -1,0 +1,64 @@
+'''
+Advantages-->
+1> performance will be improved
+2> memeory utilizations will be improved
+3> when compared with normal iterators generators are easy to use
+4> its best sutible for web scraping
+
+'''
+
+
+
+import random
+import time
+names=['mithu','mohan','shyam','ram','bunny']
+subjects=['mithu','mohan','shyam','ram','bunny']
+def peopleList(num):
+    results=[]
+    for i in range(num):
+        person={'id':i,'name':random.choice(names),'subject':random.choice(subjects)}
+        results.append(person)
+    return results
+
+def peopleGen(num):
+    for i in range(num):
+        person={'id':i,'name':random.choice(names),'subject':random.choice(subjects)}
+        results.append(person)
+    yield person
+
+t1=time.clock()
+people=peopleList(1000000)
+t2=time.clock()
+print('Time taken By List: ',t2-t1) # Time taken By List:  4.161161563
+
+
+t1=time.clock()
+people=peopleGen(1000000)
+t2=time.clock()
+print('Time taken By Generator: ',t2-t1)# Time taken By Generator:  0.14527900900000024
+
+
+
+'''
+Warning (from warnings module):
+  File "C:/Users/CHOTKA/Desktop/PYTHON/core python/generatorPerformance.py", line 18
+    t1=time.clock()
+DeprecationWarning: time.clock has been deprecated in Python 3.3 and will be removed from Python 3.8: use time.perf_counter or time.process_time instead
+
+Warning (from warnings module):
+  File "C:/Users/CHOTKA/Desktop/PYTHON/core python/generatorPerformance.py", line 20
+    t2=time.clock()
+DeprecationWarning: time.clock has been deprecated in Python 3.3 and will be removed from Python 3.8: use time.perf_counter or time.process_time instead
+Time taken By List:  4.161161563
+
+Warning (from warnings module):
+  File "C:/Users/CHOTKA/Desktop/PYTHON/core python/generatorPerformance.py", line 24
+    t1=time.clock()
+DeprecationWarning: time.clock has been deprecated in Python 3.3 and will be removed from Python 3.8: use time.perf_counter or time.process_time instead
+
+Warning (from warnings module):
+  File "C:/Users/CHOTKA/Desktop/PYTHON/core python/generatorPerformance.py", line 26
+    t2=time.clock()
+DeprecationWarning: time.clock has been deprecated in Python 3.3 and will be removed from Python 3.8: use time.perf_counter or time.process_time instead
+Time taken By Generator:  0.14527900900000024
+'''
