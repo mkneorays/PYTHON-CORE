@@ -1,0 +1,98 @@
+# memeory utilizations and performance increase
+# generator wont store values it will generate no bcoz memeory issue wont come
+# Decorator is function which is provide enhance functionality in existinf method
+def mygen():
+    yield 'A'
+    yield 'B'
+    yield 'C'
+
+g=mygen()
+print(type(g)) # <class 'generator'>
+
+print(next(g))  # A
+print(next(g))  #  B
+print(next(g))  #  C
+'''
+# below code memeory issue ll come if u write instead of 10 to 100000000
+l=[x*x for x in range(10)]
+print(l) #  [0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
+# below code is generator here no memory issue will come
+ll=(x*x for x in range(10))
+while True:
+    print(next(ll))
+
+0
+1
+4
+9
+16
+25
+36
+49
+64
+81
+'''
+'''
+def countdown(num):
+    print('count down starting .....')
+    while num>0:
+        yield num
+        num=num-1
+values=countdown(5)
+for x in values:
+    print(x)
+
+count down starting .....
+5
+4
+3
+2
+1
+'''
+'''
+# to generate first n no
+def firstno(num):
+    n=1
+    while n<=num:
+        yield n
+        n=n+1
+for x in firstno(10):
+    print(x)
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+'''
+'''
+# to generate fibonacci nos
+ # 0, 1,1,2,3,5,8,13,.....
+def fib():
+    a,b=0,1
+    while True:
+        yield a
+        a,b=b,a+b
+
+for n in fib():
+    if n>100:
+        break
+    print(n)
+0
+1
+1
+2
+3
+5
+8
+13
+21
+34
+55
+89
+'''
+
