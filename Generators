@@ -1,3 +1,13 @@
+'''
+Advantages-->
+1> performance will be improved
+2> memeory utilizations will be improved
+3> when compared with normal iterators generators are easy to use
+4> its best sutible for web scraping
+
+'''
+
+
 # memeory utilizations and performance increase
 # generator wont store values it will generate no bcoz memeory issue wont come
 # Decorator is function which is provide enhance functionality in existinf method
