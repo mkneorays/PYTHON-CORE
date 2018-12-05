@@ -1,0 +1,53 @@
+'''
+# Assertions - means debugging purpose, we use
+# we can use assertions alternate as print statement
+# debugs means checking excepeted output if not come we need to fix the bug
+# the process of identifying bug and fixing the bug is called debugging
+# ADVANTAGES OF ASSERATIONS
+# 1> no need to remove assert statement
+# 2> we can enable asseration and desiable asseration statement
+types of assert statements two
+1> simple version=
+assert conditional_expression(it will check the condition right or wrong  )
+Example below
+
+2> very simple version(Augmented version)
+
+'''
+no=10
+
+
+
+#assert no>10     # simple version
+
+assert no>10,'Here no should be >10 but not comming'  # Augmented version
+
+# assertion statement
+'''
+we nweed to check where error is present
+Traceback (most recent call last):
+  File "C:/Users/CHOTKA/Desktop/PYTHON/core python/assertion.py", line 20, in <module>
+    assert no>10  # assertion statement
+AssertionError
+'''
+
+
+print(no)
+------------------------------------------------------------------
+def square(x):
+    #return x**x
+    return x*x
+
+assert square(2)==4,'The square of 2 should be 4'
+assert square(3)==9,'The square of 3 should be 9'
+assert square(4)==16,'The square of 4 should be 16'
+print(square(2))
+print(square(3))
+print(square(4))
+'''
+because of x**x
+4
+27
+256
+'''
+->python -O assertion.py (if u dont want to execute assert statement)
