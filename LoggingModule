@@ -1,0 +1,41 @@
+'''
+@ logging levels
+1. CRITICAL ---50  (no is fixed for everyone)
+2. ERROR-----40
+3. WARNING----30
+4. INFO---->20
+5. DEBUG--->10
+6. NOTSET--->0
+below order is very importante
+NOTSET<DEBUG<INFO<WARNING<ERROR<CRITICAL
+based on level it will create lof file
+default level-:WARNING
+HOW TO IMPLEMENT LOGGING
+log file level msg
+->basicConfig() function og logging
+-> logging.basicConfig(filename='log.txt',level=logging.WARNING)
+to write msg
+logging.debug('msg')
+logging.info('msg')
+logging.warning('msg')
+logging.error('msg')
+logging.critical('msg')
+* in  log file every time append operation will perform by default
+* if u want overwrite use below code  filemode='w'
+'''
+import logging
+logging.basicConfig(filename='log.txt',level=logging.WARNING,filemode='w')
+#logging.basicConfig(format='%(levelname)s') # it will print level only on console
+#logging.basicConfig(format='%(levelname)s:%(message)s') # it will print level and msg both on console
+#logging.basicConfig(format='%(asctime)s:%(levelname)s:%(message)s') # it will print level and msg and date and time on console
+logging.basicConfig(format='%(asctime)s:%(levelname)s:%(message)s',datefmt='%d/%m%Y %I:%M:%S %p') # it will print level and msg and customize date and time in am pm formate on console
+logging.basicConfig(format='%(asctime)s:%(levelname)s:%(message)s',datefmt='%d/%m%Y %H:%M:%S ') #  it will print level and msg and customize date and time in 24 hour formate on console
+#logging.basicConfig()# if u r not passing any argument then all msg will print console
+#logging.basicConfig(filename='D:\\log\log.txt',level=logging.WARNING,filemode='w')
+# logging.basicConfig(filename='log.txt',level=logging.30)  # BOTH statemnt right
+print('loging module demo')
+logging.debug('debug info')
+logging.critical('critical info')
+logging.error('error info')
+logging.info('info info')
+logging.warning('warning info')
