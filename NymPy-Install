@@ -1,0 +1,96 @@
+First of all go to google and search  python unofficial libraries
+and search numpy and then click
+based on your recuriments chose file based on yr python and system bit 64 | 32 bit and download
+run below command
+---->pip install file_name_paste_here
+after that automitacelly installes
+if u want to chech just write import numpy and hit enter if no error is coming its means successfully install
+
+--------------------------------------------------------------------------------------------------------------------
+start coding from here
+import numpy as np
+# one D array
+a=np.array([1,2,4,5,67,7,8])  # only homogennous type u can take at a time
+# 2D array 3 X 3
+b=np.array([
+  [1,2,3],
+  [4,5,6],
+  [7,8,9]
+])
+
+print a.ndim  #  1
+print b.ndim  #  2
+
+print a.size # 7
+print b.size  #  9
+
+print a.itemsize
+print b.itemsize  #  How much byte space will take
+
+print a.dtype   # int32
+print b.dtype   # int32
+
+print a.shape   # (7,)
+print b.shape  # (3L ,3L)
+
+# 3D array 3 X 3 X 3
+c=np.array([
+  [[1,2,3],[4,5,6],[7,8,9]],
+  [[7,8,9],[4,5,6],[1,2,3]],
+  [[1,1,1],[3,3,3],[2,2,2]]
+
+])
+
+print a  #  [1,2,3,4,5,67,7,8]
+print b  # 
+print c
+
+-------------------------------------------------------------------------------------------------------------------------
+#  using numpy we can perform different operation on array very easy manner
+
+import numpy as np
+# arange function
+a=np.arange(10,16)   # here in this statement 1 techenically by default step value
+print a  # [10,11,12,13,14,15]
+b=np.arange(10,16,2) # techenically we are calling 2 is a step value
+print b  # [10,12,14]
+# zeros function
+c=np.zeros((3,3),dtype=np.int16)
+print c 
+[[0 0 0]
+[0 0 0]
+[0 0 0]]
+          
+ # ones like zeros
+ d=np.ones((4,5),np.int)
+ print d 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
