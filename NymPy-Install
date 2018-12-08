@@ -2,7 +2,17 @@ First of all go to google and search  python unofficial libraries
 and search numpy and then click
 based on your recuriments chose file based on yr python and system bit 64 | 32 bit and download
 run below command
----->pip install file_name_paste_here
+---->pip install numpy
+C:\Users\CHOTKA>pip install numpy
+Collecting numpy
+  Downloading https://files.pythonhosted.org/packages/42/5a/eaf3de1cd47a5a6baca41215fba0528ee277259604a50229190abf0a6dd2/numpy-1.15.4-cp37-none-win32.whl (9.9MB)
+    100% |████████████████████████████████| 9.9MB 1.1MB/s
+Installing collected packages: numpy
+Successfully installed numpy-1.15.4
+You are using pip version 10.0.1, however version 18.1 is available.
+You should consider upgrading via the 'python -m pip install --upgrade pip' command.
+
+C:\Users\CHOTKA>
 after that automitacelly installes
 if u want to chech just write import numpy and hit enter if no error is coming its means successfully install
 
