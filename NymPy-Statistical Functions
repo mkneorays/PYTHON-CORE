@@ -1,0 +1,128 @@
+import numpy as np 
+a = np.array([[1,2,3],[3,4,5],[4,5,6]]) 
+
+print 'Our array is:' 
+print a 
+print '\n'  
+
+print 'Applying mean() function:' 
+print np.mean(a) 
+print '\n'  
+
+print 'Applying mean() function along axis 0:' 
+print np.mean(a, axis = 0)# axis 0 means column based
+print '\n'  
+
+print 'Applying mean() function along axis 1:' 
+print np.mean(a, axis = 1) # axis 0 means rows based
+------o/p is below-------------------
+Our array is:
+[[1 2 3]
+ [3 4 5]
+ [4 5 6]]
+
+
+Applying mean() function:
+3.66666666667
+
+
+Applying mean() function along axis 0:
+[ 2.66666667  3.66666667  4.66666667]
+
+
+Applying mean() function along axis 1:
+[ 2.  4.  5.]
+------------------------------------------------------------------------------------------
+import numpy as np 
+a = np.array([1,2,3,4]) 
+
+print 'Our array is:' 
+print a 
+print '\n'  
+
+print 'Applying average() function:' 
+print np.average(a) 
+print '\n'  
+
+# this is same as mean when weight is not specified 
+wts = np.array([4,3,2,1]) 
+
+print 'Applying average() function again:' 
+print np.average(a,weights = wts) 
+print '\n'  
+
+# Returns the sum of weights, if the returned parameter is set to True. 
+print 'Sum of weights' 
+print np.average([1,2,3, 4],weights = [4,3,2,1], returned = True)
+It will produce the following output −
+
+Our array is:
+[1 2 3 4]
+
+Applying average() function:
+2.5
+
+Applying average() function again:
+2.0
+
+Sum of weights
+(2.0, 10.0)
+------------------------------------------------------------------------------------
+import numpy as np 
+a = np.array([[30,65,70],[80,95,10],[50,90,60]]) 
+
+print 'Our array is:' 
+print a 
+print '\n'  
+
+print 'Applying median() function:' 
+print np.median(a) 
+print '\n'  
+
+print 'Applying median() function along axis 0:' 
+print np.median(a, axis = 0) )# axis 0 means column based
+print '\n'  
+ 
+print 'Applying median() function along axis 1:' 
+print np.median(a, axis = 1))# axis 0 means row based
+------o/p is below-------------------
+Our array is:
+[[30 65 70]
+ [80 95 10]
+ [50 90 60]]
+
+
+Applying median() function:
+65.0
+
+
+Applying median() function along axis 0:
+[ 50.  90.  60.]
+
+
+Applying median() function along axis 1:
+[ 65.  80.  60.]
+---------------------------------------------------------------------------------------
+Standard Deviation
+Standard deviation is the square root of the average of squared deviations from mean. The formula for standard deviation is as follows −
+
+std = sqrt(mean(abs(x - x.mean())**2))
+If the array is [1, 2, 3, 4], then its mean is 2.5. Hence the squared deviations are [2.25, 0.25, 0.25, 2.25] and the square root of its mean divided by 4, i.e., sqrt (5/4) is 1.1180339887498949.
+
+Example
+ Live Demo
+import numpy as np 
+print np.std([1,2,3,4])
+It will produce the following output −
+
+1.1180339887498949 
+Variance
+Variance is the average of squared deviations, i.e., mean(abs(x - x.mean())**2). In other words, the standard deviation is the square root of variance.
+
+Example
+ Live Demo
+import numpy as np 
+print np.var([1,2,3,4])
+It will produce the following output −
+
+1.25
