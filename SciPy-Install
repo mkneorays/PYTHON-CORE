@@ -1,0 +1,17 @@
+run below command
+--->pip install pandas
+C:\Users\CHOTKA>pip install pandas
+Collecting pandas
+  Downloading https://files.pythonhosted.org/packages/26/fc/d0509d445d2724fbc5f9c9a6fc9ce7da794873469739b6c94afc166ac2a2/pandas-0.23.4-cp37-cp37m-win32.whl (6.8MB)
+    100% |████████████████████████████████| 6.8MB 1.4MB/s
+Requirement already satisfied: numpy>=1.9.0 in c:\users\chotka\appdata\local\programs\python\python37-32\lib\site-packages (from pandas) (1.15.4)
+Requirement already satisfied: python-dateutil>=2.5.0 in c:\users\chotka\appdata\local\programs\python\python37-32\lib\site-packages (from pandas) (2.7.5)
+Requirement already satisfied: pytz>=2011k in c:\users\chotka\appdata\local\programs\python\python37-32\lib\site-packages (from pandas) (2018.7)
+Requirement already satisfied: six>=1.5 in c:\users\chotka\appdata\local\programs\python\python37-32\lib\site-packages (from python-dateutil>=2.5.0->pandas) (1.11.0)
+Installing collected packages: pandas
+Successfully installed pandas-0.23.4
+You are using pip version 10.0.1, however version 18.1 is available.
+You should consider upgrading via the 'python -m pip install --upgrade pip' command.
+Note- if above command is comming its means successfully installed then checked below command....
+>>> import pandas
+>>> 
