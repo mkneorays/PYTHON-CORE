@@ -1,3 +1,7 @@
+The main object of NumPy is the homogeneous multidimensional array. It is a table of elements (usually numbers),
+all of the same type, indexed by a tuple of positive integers.
+In NumPy, dimensions are called as axes. The number of axes is called as rank.
+----------------------------------------------------------------------------------------------------------
 First of all go to google and search  python unofficial libraries
 and search numpy and then click
 based on your recuriments chose file based on yr python and system bit 64 | 32 bit and download
@@ -5,7 +9,8 @@ run below command
 ---->pip install numpy
 C:\Users\CHOTKA>pip install numpy
 Collecting numpy
-  Downloading https://files.pythonhosted.org/packages/42/5a/eaf3de1cd47a5a6baca41215fba0528ee277259604a50229190abf0a6dd2/numpy-1.15.4-cp37-none-win32.whl (9.9MB)
+  Downloading https://files.pythonhosted.org/packages/42/5a/eaf3de1cd47a5a6baca41215fba0528ee27725
+  9604a50229190abf0a6dd2/numpy-1.15.4-cp37-none-win32.whl (9.9MB)
     100% |████████████████████████████████| 9.9MB 1.1MB/s
 Installing collected packages: numpy
 Successfully installed numpy-1.15.4
